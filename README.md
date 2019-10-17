@@ -16,9 +16,9 @@ Jde o třetí verzi skriptů (proto *...v3*), kde se již využívá příkazu `
 
 ### optionv3.php
 - Pomocný soubor, kde se specifikuje základní nastavení pro bezproblémový chod skriptu
-  - Adresa `url_base` pro jednotlivá prostředí (CZtrain, SKtrain, CZprodukce, SKprodukce)
+  - Adresa `$url_base` pro jednotlivá prostředí (CZtrain, SKtrain, CZprodukce, SKprodukce)
   - Volí se měna CZK/EUR
-  - Specifikuje se `username` a `password`
+  - Specifikuje se `$username` a `$password`
  
 ### tokenv3.php
 - Pomocný soubor k vygenerování OAuth2 access tokenu
@@ -32,9 +32,9 @@ Jde o třetí verzi skriptů (proto *...v3*), kde se již využívá příkazu `
 - Používá se, pokud chcete klientům zobrazit sumář objednávky (na odkaz si již musí kliknout klient sám), případně doplníte automatickým přesměrováním po xx vteřinách
 
 ### json.php
-- Zdrojová data, která zasíláte do HC aplikace - MyLoan. 
-- Zde si upravujete číslo objednávky, data o klientovi a zboží, případně zde můžete nastavit klientem preferované splátky, které jste si uložili z widget kalkulačky v detailu produktu
-> *toto neplatí pro eshopy v režimu Tipař - tito mohou použít pouze kalkulačku Standalone, která údaje o klientem preferované variantě nepřenáší.*
+- Zdrojová data pro provedení `startv3.php`, která zasíláte do HC aplikace - MyLoan. 
+- Zde si upravujete číslo objednávky, data o klientovi a zboží
+- Můžete si zde případně i nastavit klientem preferované splátky, které jste si uložili z widget kalkulačky v detailu produktu - *Toto neplatí pro eshopy v režimu Tipař - tito mohou použít pouze kalkulačku Standalone, která údaje o klientem preferované variantě nepřenáší.*
 
 ## Rozšiřující zdrojové skripty
 Následující funkce nemusíte nutně použít. Stavy se e-shopům zobrazují v obslužné aplikaci Webclient. 
