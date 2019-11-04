@@ -3,6 +3,8 @@
 Požadavek slouží k nastavení stavu Žádosti (Application) na Vyskladněno (ready_shipped)
 Volat jde pouze u žádostí se stateReason = ready_to_ship
 
+!! POZOR - po použití tohoto skriptu již nelze použit skript deliverv3.php (jedná se o jiný proces vyskladnění)
+
 Stavy žádosti:
   Processing_redirect_needed ... stav po přesměrování, resp. po vytvoření createApplication, 1.krok
   Processing_preapproved, Processing_approved, Processing_review, Processing_alt_offer
@@ -12,8 +14,10 @@ Stavy žádosti:
   Ready_delivered ... potvrzeno eshopem, že zboží bylo dodáno klientovi (odesláním Mark Order as Delivered)
   !!! eshop odesílá vždy pouze Mark Order as Sent nebo Mark Order as Delivered. Nikdy ne oboje.
   Rejected ... klient byl zamítnut, nyní je odeslán zpět na eshop na adresu url_rejected
-  Ready_paid, Cancelled_not_paid, Cancelled_returned
-*/
+  Ready_paid ... žádost byla Home Creditem e-shopu proplacena
+  Cancelled_not_paid ... žádost zrušena před proplacením
+  Cancelled_returned ... žádost zrušena po proplacení
+ */
 include './tokenv3.php' ;
 
 
@@ -30,14 +34,14 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLINFO_HEADER_OUT, true);
 curl_setopt($ch,CURLOPT_HTTPHEADER,array(
                 'Content-Type: application/json',
-                'Charset: utf-8', 
-                'Authorization: Bearer ' . $responze["accessToken"] 
+                'Charset: utf-8',
+                'Authorization: Bearer ' . $responze["accessToken"]
     ));
-   
+
 //curl_setopt($ch, CURLOPT_POST, true);
 //curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
- 
- 
+
+
 // Submit the POST request
 $result = curl_exec($ch);
 $responze2 = json_decode( $result,true );
@@ -48,8 +52,8 @@ var_dump($responze2);
 // Výpis chyby, pokud se objeví
 if (!curl_errno($ch)) {
   switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
-    case 200:  
-    echo 'Soubor applicationDetailv3 => HTTP code : ', $http_code, ' # OK', '<br />';
+    case 200:
+    echo 'Soubor sendv3 => HTTP code : ', $http_code, ' # OK', '<br />';
       break;
     default:
       echo 'Unexpected HTTP code: ', $http_code, '<br />';
