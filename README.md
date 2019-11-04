@@ -12,7 +12,6 @@ Jde o třetí verzi skriptů (proto *...v3*), kde se již využívá příkazu `
 - `422 - APPLICATION_REJECTED` = nepovolená operace, nelze stornovat zamítnutou žádost
 - `404 - PAGE_NOT_FOUND` = train prostředí může mít krátkodobé výpadky z přetížení ==> odešlete žádost opakovaně v anonymním okně prohlížeče pomocí CTRL+F5 nebo zavřete a znovu otevřete prohlížeč (chyby se ukládají v cache prohlížeče a prohlížeč ji zobrazuje i v případě, že jste zdroj opravili)
 - `400 - BAD_REQUEST` = nevalidní request, patrně jste chybně upravili `json.php` ==> použijte zdrojový
-- 
 
 ## Základní zdrojové skripty
 
