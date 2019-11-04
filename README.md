@@ -59,6 +59,11 @@ Následující funkce nemusíte nutně použít. Stavy se e-shopům zobrazují v
 
 ### sendv3.php
 - U žádosti, která je ve stavu `READY_TO_SHIP`, potvrdí vyskladnění, tedy přepne do stavu `READY_SHIPPED`
+> **POZOR: Nelze kombinovat s `deliverv3.php`** - jedná se o jiný proces vyskladnění ==> musíte si tedy vybrat, zda zboží označíte za odeslané (**`sendv3.php`**), nebo jako doručené (`deliverv3.php`)
+
+### deliverv3.php
+- U žádosti, která je ve stavu `READY_TO_SHIP`, potvrdí doručení klientovi, tedy přepne do stavu `READY_DELIVERED`
+> **POZOR: Nelze kombinovat se `sendv3.php`** - jedná se o jiný proces vyskladnění ==> musíte si tedy vybrat, zda zboží označíte za odeslané (`sendv3.php`), nebo jako doručené (**`deliverv3.php`**)
 
 ### cancelv3.php
 - Stornuje nezamítnutou žádost (nesmí být ve stavu `REJECTED`), a podle původního stavu přepne do `CANCELLED_NOT_PAID` (dokud nebyla žádost proplacena), nebo `CANCELLED_RETURNED` (po proplacení žádosti)
