@@ -13,10 +13,11 @@ Stavy žádosti:
   !!! eshop odesílá vždy pouze Mark Order as Sent nebo Mark Order as Delivered. Nikdy ne oboje.
   Rejected ... klient byl zamítnut, nyní je odeslán zpět na eshop na adresu url_rejected
   Ready_paid ... žádost byla Home Creditem e-shopu proplacena
-  Cancelled_not_paid ... žádost zrušena před proplacením  
+  Cancelled_not_paid ... žádost zrušena před proplacením
   Cancelled_returned ... žádost zrušena po proplacení
 */
 include './tokenv3.php' ;
+include './json_cancel.php' ;
 
 
 // načtení uloženého ID žádosti ze souboru
@@ -33,17 +34,17 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLINFO_HEADER_OUT, true);
 curl_setopt($ch,CURLOPT_HTTPHEADER,array(
                 'Content-Type: application/json',
-                'Charset: utf-8', 
-                'Authorization: Bearer ' . $responze["accessToken"] 
+                'Charset: utf-8',
+                'Authorization: Bearer ' . $responze["accessToken"]
     ));
-   
-//curl_setopt($ch, CURLOPT_POST, true);
-//curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
- 
- 
+
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
+
+
 // Submit the POST request
 $result = curl_exec($ch);
-$responze2 = json_decode( $result,true );
+$responze2 = json_decode( $result, true);
 
 // Vypsání kompletní responze na POST
 var_dump($responze2);
@@ -51,7 +52,7 @@ var_dump($responze2);
 // Výpis chyby, pokud se objeví
 if (!curl_errno($ch)) {
   switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
-    case 200:  
+    case 200:
     echo 'Soubor cancelv3 => HTTP code : ', $http_code, ' # OK', '<br />';
       break;
     default:
