@@ -67,8 +67,14 @@ Následující funkce nemusíte nutně použít. Stavy se e-shopům zobrazují v
 > **POZOR: Nelze kombinovat se `sendv3.php`** - jedná se o jiný proces vyskladnění ==> musíte si tedy vybrat, zda zboží označíte za odeslané (`sendv3.php`), nebo jako doručené (**`deliverv3.php`**)
 
 ### cancelv3.php
-- Stornuje nezamítnutou žádost (nesmí být ve stavu `REJECTED`), a podle původního stavu přepne do `CANCELLED_NOT_PAID` (dokud nebyla žádost proplacena), nebo `CANCELLED_RETURNED` (po proplacení žádosti)
+- Stornuje nezamítnutou žádost (nesmí být ve stavu `REJECTED`), a podle původního stavu přepne do `CANCELLED_NOT_PAID` (dokud nebyla žádost proplacena), nebo `CANCELLED_RETURNED` (po proplacení žádosti).
+- Umožňuje specifikovat důvod stornování žádosti
+
+### json_cancel.php
+- Zdrojová data pro provedení `cancelv3.php` s uvedením důvodu storna (nepovinné).
+- Zde můžete specifikovat jeden z předdefinovaných důvodů stornování žádosti, případně použít volnou textaci obecného důvodu
 
 
 ---
 9.8.2019 Vytvořil Tomáš Bárta, tomas.barta@homecredit.cz, tel.: 602546502
+6.11.2019 Upravil Jakub Klos, jakub.klos@homecredit.cz
