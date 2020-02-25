@@ -39,9 +39,9 @@ $json ='{
         },
         "image": {
           "filename": "iphone6s.jpg",
-          "url": "https://i.cdn.nrholding.net/32523771/2000/2000"
+          "url": "https://i.cdn.nrholding.net/32523771/2000/2000/iphone6s.jpg"
         }
- 
+
       }
     ]
   },
