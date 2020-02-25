@@ -27,49 +27,20 @@ $json ='{
       "amount": 200000,
       "currency": ' . $mena . '
     },
-    "totalVat": [
-      {
-        "amount": 42000,
-        "currency": ' . $mena . ',
-        "vatRate": 21
-      }
-    ],
-    "addresses": [
-      {
-        "city": "Brno",
-        "streetAddress": "Holandská",
-        "streetNumber": "622",
-        "zip": "60500",
-        "addressType": "DELIVERY"
-      }
-    ],
-    
-   
     "items": [
       {
-                "code": "5202",
-                "ean": "9999545",
+        "code": "5202",
+        "ean": "9999545",
         "name": "iPhone 6s 32GB SpaceGray",
         "quantity": 1,
-        "unitPrice": {
-          "amount": 200000,
-          "currency": ' . $mena . '
-        },
-        "unitVat": {
-          "amount": 42000,
-          "currency": ' . $mena . ',
-          "vatRate": 21
-        },
         "totalPrice": {
           "amount": 200000,
           "currency": ' . $mena . '
         },
-        "totalVat": {
-          "amount": 42000,
-          "currency": ' . $mena . ',
-          "vatRate": 21
-        },
-        "productUrl": "https://www.example.com?itemId=10"
+        "image": {
+          "filename": "iphone6s.jpg",
+          "url": "https://i.cdn.nrholding.net/32523771/2000/2000"
+        }
  
       }
     ]
