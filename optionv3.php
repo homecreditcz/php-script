@@ -8,11 +8,11 @@ Pro zjištění stavu žádosti použijte applicationDetailv3.php
 Přednastavena je adresa pro CZ train prostředí
 */
 //CZ train prostředí
-$url_base = 'https://apicz-test.homecredit.net/verdun-train';
+$url_base = 'https://apicz-test.homecredit.cz/verdun-train';
 $mena='"CZK"';
 
 //SK train prostředí
-//$url_base = 'https://apisk-test.homecredit.net/verdun-train';
+//$url_base = 'https://apisk-test.homecredit.sk/verdun-train';
 //$mena='"EUR"';
 
 //CZ produkční prostředí
